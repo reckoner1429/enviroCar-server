@@ -38,7 +38,7 @@ public class PrivacyStatementResource extends TermsResource {
     @GET
     @AllowOutdatedTerms
     @Schema(response = Schemas.PRIVACY_STATEMENT)
-    @Produces({MediaTypes.JSON})
+    @Produces({MediaTypes.OCTET_STREAM})
     public PrivacyStatement get() {
         return setContents(entity);
     }

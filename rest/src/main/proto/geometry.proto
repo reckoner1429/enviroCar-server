@@ -1,0 +1,48 @@
+syntax = "proto3";
+
+package org.enviroCar.server.rest;
+
+message Coordinate {
+    double x = 1;
+    double y = 2;
+}
+
+message Point {
+    Coordinate coordinate = 1;
+}
+
+message Line {
+    repeated Point coordinate = 1;
+}
+
+message Polygon {
+    repeated Line line = 1;
+}
+
+message MultiPoint {
+    repeated Point point = 1;
+}
+
+message MultiLine {
+    repeated Line line = 1;
+}
+
+message MultiPolygon {
+    repeated Polygon polygon = 1;
+}
+
+message Geometry {
+    oneof geometry {
+        Point point = 2;
+        Line line = 3;
+        Polygon polygon = 4;
+        MultiPoint multi_point = 5;
+        MultiLine multi_line = 6;
+        MultiPolygon multi_polygon = 7;
+        GeometryCollection geometry_collection = 8;
+    }
+}
+
+message GeometryCollection {
+    repeated Geometry geometry_collection = 1;
+}

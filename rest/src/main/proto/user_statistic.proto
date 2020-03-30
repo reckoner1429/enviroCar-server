@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package org.enviroCar.server.rest;
+
+import "geometry.proto";
+
+message UserStatistic {
+    double distance = 1;
+    double duration = 2;
+    double distance_below_60_kmh = 3;
+    double duration_below_60_kmh = 4;
+    double distance_above_130_kmh = 5;
+    double duration_above_130_kmh = 6;
+    double distance_nan = 7;
+    double duration_nan = 8;
+    repeated TrackSummary tracksummary = 9;
+}
+
+message TrackSummary {
+    string id = 1;
+    Geometry start_position = 2;
+    Geometry stop_position = 3;
+}

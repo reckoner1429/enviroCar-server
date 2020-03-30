@@ -139,11 +139,13 @@ public class UserServiceImpl implements UserService {
 
         User created = this.userDao.create(user);
 
-        try {
-            mailer.send(createVerificationMail(created));
-        } catch (MailerException ex) {
-            throw new RuntimeException(ex);
-        }
+        //TODO: revert this after wards
+        userDao.confirm(created.getName());
+//        try {
+//            mailer.send(createVerificationMail(created));
+//        } catch (MailerException ex) {
+//            throw new RuntimeException(ex);
+//        }
 
         return user;
     }

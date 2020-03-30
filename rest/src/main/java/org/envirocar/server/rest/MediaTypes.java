@@ -28,6 +28,7 @@ import java.util.Optional;
  * @author Arne de Wall
  */
 public interface MediaTypes {
+    String OCTET_STREAM = MediaType.APPLICATION_OCTET_STREAM;
     String JSON = MediaType.APPLICATION_JSON;
     String XML_RDF = "application/rdf+xml";
     String TURTLE = "text/turtle";
@@ -37,6 +38,7 @@ public interface MediaTypes {
     String PNG = "image/png";
     String APPLICATION_ZIPPED_SHP = "application/x-zipped-shp";
 
+    MediaType OCTET_STREAM_TYPE = MediaType.APPLICATION_OCTET_STREAM_TYPE;
     MediaType JSON_TYPE = MediaType.APPLICATION_JSON_TYPE;
     MediaType XML_RDF_TYPE = MediaType.valueOf(XML_RDF);
     MediaType APPLICATION_ZIPPED_SHP_TYPE = MediaType.valueOf(APPLICATION_ZIPPED_SHP);

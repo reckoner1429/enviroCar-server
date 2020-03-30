@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package org.enviroCar.server.rest;
+
+message Sensor {
+    string type = 1;
+
+    message Property {
+        string key = 1;
+        string value = 2;
+    }
+
+    repeated Property properties = 2;
+}
+
+message SensorCollection {
+    repeated Sensor sensor = 1;
+}

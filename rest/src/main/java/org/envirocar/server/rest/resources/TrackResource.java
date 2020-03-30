@@ -54,7 +54,7 @@ public class TrackResource extends AbstractResource {
 
     @PUT
     @Schema(request = Schemas.TRACK_MODIFY)
-    @Consumes({MediaTypes.JSON})
+    @Consumes({MediaTypes.OCTET_STREAM})
     @Authenticated
     public Response modify(Track changes) throws IllegalModificationException, ValidationException {
         checkRights(getRights().canModify(track));
@@ -64,7 +64,7 @@ public class TrackResource extends AbstractResource {
 
     @GET
     @Schema(response = Schemas.TRACK)
-    @Produces({MediaTypes.JSON,
+    @Produces({MediaTypes.OCTET_STREAM,
                MediaTypes.XML_RDF,
                MediaTypes.TURTLE,
                MediaTypes.TURTLE_ALT,

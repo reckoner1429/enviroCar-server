@@ -27,7 +27,7 @@ import javax.ws.rs.Produces;
 
 public class BadgesResource extends AbstractResource {
     @GET
-    @Produces({MediaTypes.JSON})
+    @Produces({MediaTypes.OCTET_STREAM})
     @Schema(response = Schemas.BADGES)
     public Badges get() throws BadRequestException {
         return getDataService().getBadges(getPagination());

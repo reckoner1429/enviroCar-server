@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+package org.enviroCar.server.rest;
+
+import "sensor.proto";
+import "user.proto";
+
+message Fueling {
+    string type = 1;
+    DimensionedNumber cost = 2;
+    DimensionedNumber mileage = 3;
+    DimensionedNumber volume = 4;
+    string time = 5;
+    Sensor car = 6;
+    User user = 7;
+    string created = 8;
+    string modified = 9;
+    string comment = 10;
+    string id = 11;
+    bool is_missed_fuel_stop = 12;
+    bool is_partial_fueling = 13;
+
+    message DimensionedNumber {
+        string value = 1;
+        string unit = 2;
+    }
+}
+
+message FuelingCollection {
+    repeated Fueling fueling = 1;
+}

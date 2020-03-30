@@ -67,7 +67,7 @@ public class SensorsResource extends AbstractResource {
 
     @GET
     @Schema(response = Schemas.SENSORS)
-    @Produces({MediaTypes.JSON, MediaTypes.XML_RDF, MediaTypes.TURTLE, MediaTypes.TURTLE_ALT})
+    @Produces({MediaTypes.OCTET_STREAM, MediaTypes.XML_RDF, MediaTypes.TURTLE, MediaTypes.TURTLE_ALT})
     public Sensors get(@QueryParam(RESTConstants.TYPE) String type) throws BadRequestException {
         MultivaluedMap<String, String> queryParameters = getUriInfo().getQueryParameters();
         Set<PropertyFilter> filters = Sets.newHashSet();
@@ -84,7 +84,7 @@ public class SensorsResource extends AbstractResource {
     }
 
     @POST
-    @Consumes({MediaTypes.JSON})
+    @Consumes({MediaTypes.OCTET_STREAM})
     @Schema(request = Schemas.SENSOR_CREATE)
     @Authenticated
     public Response create(Sensor sensor) {

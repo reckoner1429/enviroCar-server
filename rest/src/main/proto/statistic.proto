@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package org.enviroCar.server.rest;
+
+import "phenomenon.proto";
+
+message Statistic {
+    double max = 1;
+    double mean = 2;
+    double min = 3;
+    int64 measurements = 4;
+    int64 tracks = 5;
+    int64 users = 6;
+    int64 sensors = 7;
+    Phenomenon phenomenon = 8;
+}
+
+message StatisticCollection {
+    repeated Statistic statistic= 1;
+}

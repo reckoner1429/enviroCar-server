@@ -313,7 +313,7 @@ public class MongoUserDao extends AbstractMongoDao<String, MongoUser, Users> imp
             return null;
         }
 
-        Query<MongoUser> query = q().field(MongoUser.CONFIRMATION_CODE).equal(code);
+        Query<MongoUser> query = q().field(MongoUser.NAME).equal(code);
 
         UpdateOperations<MongoUser> update = up()
                 .unset(MongoUser.CONFIRMATION_CODE)

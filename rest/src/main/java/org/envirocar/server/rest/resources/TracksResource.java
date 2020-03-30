@@ -64,7 +64,7 @@ public class TracksResource extends AbstractResource {
 
     @GET
     @Schema(response = Schemas.TRACKS)
-    @Produces({MediaTypes.JSON, MediaTypes.XML_RDF, MediaTypes.TURTLE, MediaTypes.TURTLE_ALT})
+    @Produces({MediaTypes.OCTET_STREAM, MediaTypes.XML_RDF, MediaTypes.TURTLE, MediaTypes.TURTLE_ALT})
     public Tracks get(@QueryParam(RESTConstants.BBOX) BoundingBox bbox) throws BadRequestException {
         SpatialFilter spatialFilter = null;
         if (bbox != null) {
@@ -79,7 +79,7 @@ public class TracksResource extends AbstractResource {
     @POST
     @Authenticated
     @Schema(request = Schemas.TRACK_CREATE)
-    @Consumes({MediaTypes.JSON})
+    @Consumes({MediaTypes.OCTET_STREAM})
     public Response create(Track track) throws ValidationException {
         if (user != null) {
             checkRights(getRights().isSelf(user));

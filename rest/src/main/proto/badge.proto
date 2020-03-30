@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package org.enviroCar.server.rest;
+
+message Badge {
+    string name = 1;
+    repeated Entry display_name = 2;
+    repeated Entry description = 3;
+    message Entry {
+        string key = 1;
+        string value = 2;
+    }
+}
+
+message BadgeCollection {
+    repeated Badge badge = 1;
+}

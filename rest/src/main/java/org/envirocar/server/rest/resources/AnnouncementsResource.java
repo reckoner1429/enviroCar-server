@@ -34,7 +34,7 @@ public class AnnouncementsResource extends AbstractResource {
     public static final String ANNOUNCEMENT = "{id}";
 
     @GET
-    @Produces({MediaTypes.JSON})
+    @Produces({MediaTypes.OCTET_STREAM})
     @Schema(response = Schemas.ANNOUNCEMENTS)
     public Announcements announcements() throws BadRequestException {
         return getDataService().getAnnouncements(getPagination());

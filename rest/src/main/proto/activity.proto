@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package org.enviroCar.server.rest;
+
+import "user.proto";
+import "group.proto";
+import "track.proto";
+
+message Activity {
+    string time = 1;
+    string type = 2;
+    User user = 3;
+    Group group = 4;
+    User other = 5;
+    Track track = 6;
+}
+
+message ActivityCollection {
+    repeated Activity activity = 1;
+}

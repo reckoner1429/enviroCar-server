@@ -90,7 +90,7 @@ public class ResourceTestBase {
                                                 .put(JSONConstants.ACCEPTED_PRIVACY_STATEMENT, true)
                                                 .put(JSONConstants.ACCEPTED_TERMS_OF_USE, true);
         assertThat(resource().path("/").path(RootResource.USERS)
-                             .entity(user, MediaTypes.JSON_TYPE)
+                             .entity(user, MediaTypes.OCTET_STREAM_TYPE)
                              .post(ClientResponse.class),
                    hasStatus(Response.Status.CREATED));
 

@@ -52,7 +52,7 @@ public class GroupMembersResource extends AbstractResource {
 
     @GET
     @Schema(response = Schemas.USERS)
-    @Produces({MediaTypes.JSON, MediaTypes.XML_RDF, MediaTypes.TURTLE, MediaTypes.TURTLE_ALT})
+    @Produces({MediaTypes.OCTET_STREAM, MediaTypes.XML_RDF, MediaTypes.TURTLE, MediaTypes.TURTLE_ALT})
     public Users get() throws BadRequestException {
         checkRights(getRights().canSeeMembersOf(group));
         return getGroupService().getGroupMembers(group, getPagination());
@@ -60,7 +60,7 @@ public class GroupMembersResource extends AbstractResource {
 
     @POST
     @Authenticated
-    @Consumes({MediaTypes.JSON})
+    @Consumes({MediaTypes.OCTET_STREAM})
     @Schema(request = Schemas.USER_REF)
     public void add(UserReference user) throws UserNotFoundException {
         User u = getUserService().getUser(user.getName());

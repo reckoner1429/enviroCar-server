@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package org.enviroCar.server.rest;
+
+import "user.proto";
+message Group {
+    string name = 1;
+    string description = 2;
+    User owner = 3;
+    string created = 4;
+    string modified = 5;
+}
+
+message GroupCollection {
+    repeated Group group = 1;
+}

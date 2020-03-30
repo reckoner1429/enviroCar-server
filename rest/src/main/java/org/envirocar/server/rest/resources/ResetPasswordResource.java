@@ -37,7 +37,7 @@ public class ResetPasswordResource extends AbstractResource {
 
     @POST
     @Schema(request = Schemas.PASSWORD_RESET_REQUEST)
-    @Consumes({MediaTypes.JSON})
+    @Consumes({MediaTypes.OCTET_STREAM})
     public Response get(ResetPasswordRequest resetPassword) throws BadRequestException {
         checkRights(getRights().canAccessPasswordReset());
 
@@ -49,7 +49,7 @@ public class ResetPasswordResource extends AbstractResource {
 
     @PUT
     @Schema(request = Schemas.PASSWORD_RESET_VERIFICATION)
-    @Consumes({MediaTypes.JSON})
+    @Consumes({MediaTypes.OCTET_STREAM})
     public Response resetPassword(ResetPasswordRequest resetPassword) throws BadRequestException {
         checkRights(getRights().canAccessPasswordReset());
 

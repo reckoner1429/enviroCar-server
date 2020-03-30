@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package org.enviroCar.server.rest;
+
+message Announcement {
+    string created = 1;
+    string modified = 2;
+    string id = 3;
+    string versions = 4;
+    string category = 5;
+    string priority = 6;
+    repeated Entry entry = 7;
+
+    message Entry {
+        string key = 1;
+        string value = 2;
+    }
+}
+
+message AnnouncementCollection {
+    repeated Announcement announcement = 1;
+}

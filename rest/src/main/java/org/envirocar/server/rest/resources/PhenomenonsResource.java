@@ -45,7 +45,7 @@ public class PhenomenonsResource extends AbstractResource {
 
     @GET
     @Schema(response = Schemas.PHENOMENONS)
-    @Produces({MediaTypes.JSON, MediaTypes.XML_RDF, MediaTypes.TURTLE, MediaTypes.TURTLE_ALT})
+    @Produces({MediaTypes.OCTET_STREAM, MediaTypes.XML_RDF, MediaTypes.TURTLE, MediaTypes.TURTLE_ALT})
     public Phenomenons get() throws BadRequestException {
         return getDataService().getPhenomenons(getPagination());
     }
@@ -53,7 +53,7 @@ public class PhenomenonsResource extends AbstractResource {
     @POST
     @Authenticated
     @Schema(request = Schemas.PHENOMENON_CREATE)
-    @Consumes({MediaTypes.JSON})
+    @Consumes({MediaTypes.OCTET_STREAM})
     public Response create(Phenomenon phenomenon) {
         return Response.created(getUriInfo().getAbsolutePathBuilder()
                                             .path(getDataService().createPhenomenon(phenomenon)

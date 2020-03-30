@@ -1,0 +1,45 @@
+syntax = "proto3";
+
+package org.enviroCar.server.rest;
+
+import "geometry.proto";
+import "sensor.proto";
+import "user.proto";
+
+message Measurement {
+
+    string type = 1;
+
+    Geometry geometry = 2;
+
+    Properties properties = 3;
+
+    message Properties {
+
+        string id = 1;
+
+        string time = 2;
+
+        Sensor sensor = 3;
+
+        User user = 4;
+
+        string modified = 5;
+
+        string created = 6;
+
+        string track = 7;
+
+        repeated Phenomenon phenomenon = 8;
+    }
+
+    message Phenomenon {
+        string name = 1;
+        string value = 2;
+        string unit = 3;
+    }
+}
+
+message MeasurementCollection {
+    repeated Measurement measurement = 1;
+}

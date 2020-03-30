@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package org.enviroCar.server.rest;
+
+message Terms {
+    string id = 1;
+    string issue_date = 2;
+    string created = 3;
+    string modified = 4;
+    string contents = 5;
+}
+
+message TermsOfUse {
+    repeated Terms terms = 1;
+}
+
+message PrivacyStatement {
+    repeated Terms terms = 1;
+}

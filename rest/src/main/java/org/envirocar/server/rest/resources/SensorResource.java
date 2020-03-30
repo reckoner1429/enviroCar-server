@@ -43,7 +43,7 @@ public class SensorResource extends AbstractResource {
 
     @GET
     @Schema(response = Schemas.SENSOR)
-    @Produces({MediaTypes.JSON, MediaTypes.XML_RDF, MediaTypes.TURTLE, MediaTypes.TURTLE_ALT})
+    @Produces({MediaTypes.OCTET_STREAM, MediaTypes.XML_RDF, MediaTypes.TURTLE, MediaTypes.TURTLE_ALT})
     public Sensor get() {
         return this.sensor;
     }

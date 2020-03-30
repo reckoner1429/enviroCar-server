@@ -18,7 +18,6 @@ package org.envirocar.server.rest.resources;
 
 import com.google.inject.Inject;
 import com.google.inject.assistedinject.Assisted;
-import org.envirocar.server.core.entities.Terms;
 import org.envirocar.server.core.entities.TermsOfUseInstance;
 import org.envirocar.server.rest.MediaTypes;
 import org.envirocar.server.rest.Schemas;
@@ -27,7 +26,6 @@ import org.envirocar.server.rest.schema.Schema;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Produces;
-import java.util.Locale;
 
 /**
  * @author matthes rieke
@@ -43,7 +41,7 @@ public class TermsOfUseInstanceResource extends TermsResource {
     @GET
     @AllowOutdatedTerms
     @Schema(response = Schemas.TERMS_OF_USE_INSTANCE)
-    @Produces({MediaTypes.JSON})
+    @Produces({MediaTypes.OCTET_STREAM})
     public TermsOfUseInstance get() {
         return setContents(entity);
     }

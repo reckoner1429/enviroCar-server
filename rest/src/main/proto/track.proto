@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+package org.enviroCar.server.rest;
+
+import "sensor.proto";
+import "user.proto";
+import "measurement.proto";
+message Track {
+    string type = 1;
+    string id = 2;
+    string name = 11;
+    string description = 3;
+    string created = 4;
+    string modified = 5;
+    string begin = 12;
+    string end = 13;
+    string tou_version = 14;
+    Sensor sensor = 6;
+    User user = 7;
+    double length = 8;
+    string app_version = 9;
+    MeasurementCollection measurements = 10;
+}
+
+message TrackCollection {
+    repeated Track track = 1;
+}

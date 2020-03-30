@@ -46,7 +46,7 @@ public class MeasurementResource extends AbstractResource {
 
     @GET
     @Schema(response = Schemas.MEASUREMENT)
-    @Produces({MediaTypes.JSON, MediaTypes.XML_RDF, MediaTypes.TURTLE, MediaTypes.TURTLE_ALT})
+    @Produces({MediaTypes.OCTET_STREAM, MediaTypes.XML_RDF, MediaTypes.TURTLE, MediaTypes.TURTLE_ALT})
     public Measurement get() {
         return measurement;
     }

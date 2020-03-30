@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package org.enviroCar.server.rest;
+
+import "phenomenon.proto";
+
+message MeasurementValue {
+    string value = 1;
+    Phenomenon phenomenon = 2;
+}
+
+message MeasurementValues {
+    repeated MeasurementValue measurement_value = 1;
+}

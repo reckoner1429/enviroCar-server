@@ -43,7 +43,7 @@ public class PhenomenonResource extends AbstractResource {
 
     @GET
     @Schema(response = Schemas.PHENOMENON)
-    @Produces({MediaTypes.JSON, MediaTypes.XML_RDF, MediaTypes.TURTLE, MediaTypes.TURTLE_ALT})
+    @Produces({MediaTypes.OCTET_STREAM, MediaTypes.XML_RDF, MediaTypes.TURTLE, MediaTypes.TURTLE_ALT})
     public Phenomenon getPhenomenon() {
         return phenomenon;
     }

@@ -71,7 +71,7 @@ public class JsonSchemaMediaTypeResourceFilter
 
     @Override
     public ContainerResponse filter(ContainerRequest request, ContainerResponse response) {
-        if (MediaTypes.JSON_TYPE.isCompatible(response.getMediaType())) {
+        if (MediaTypes.OCTET_STREAM_TYPE.isCompatible(response.getMediaType())) {
             URI schema = MediaTypes.getSchemaAttribute(response.getMediaType())
                                    .map(URI::create).orElse(this.responseSchema);
             if (schema != null) {

@@ -41,7 +41,7 @@ public class UsersResource extends AbstractResource {
 
     @GET
     @Schema(response = Schemas.USERS)
-    @Produces({MediaTypes.JSON, MediaTypes.XML_RDF, MediaTypes.TURTLE, MediaTypes.TURTLE_ALT})
+    @Produces({MediaTypes.OCTET_STREAM, MediaTypes.XML_RDF, MediaTypes.TURTLE, MediaTypes.TURTLE_ALT})
     public Users get() throws BadRequestException {
         checkRights(getRights().canSeeUsers());
         return getUserService().getUsers(getPagination());
@@ -50,7 +50,7 @@ public class UsersResource extends AbstractResource {
     @POST
     @Anonymous
     @Schema(request = Schemas.USER_CREATE)
-    @Consumes({MediaTypes.JSON})
+    @Consumes({MediaTypes.OCTET_STREAM})
     public Response create(User user) throws ValidationException, ResourceAlreadyExistException {
 //        checkMail(user);
         user = getUserService().createUser(user);

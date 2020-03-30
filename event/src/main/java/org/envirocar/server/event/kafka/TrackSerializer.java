@@ -20,11 +20,12 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectWriter;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.google.inject.Inject;
+import com.google.protobuf.Message;
 import org.apache.kafka.common.serialization.Serializer;
 import org.envirocar.server.core.entities.Track;
 import org.envirocar.server.rest.MediaTypes;
 import org.envirocar.server.rest.Schemas;
-import org.envirocar.server.rest.encoding.JSONEntityEncoder;
+import org.envirocar.server.rest.encoding.ProtoMessageEncoder;
 import org.envirocar.server.rest.rights.AccessRightsImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -34,26 +35,27 @@ import java.util.Objects;
 
 public class TrackSerializer implements Serializer<Track> {
     private static final Logger LOG = LoggerFactory.getLogger(TrackSerializer.class);
-    private final JSONEntityEncoder<Track> encoder;
+    private final ProtoMessageEncoder<Track> encoder;
     private final ObjectWriter objectMapper;
 
     @Inject
-    public TrackSerializer(JSONEntityEncoder<Track> encoder, ObjectWriter objectMapper) {
+    public TrackSerializer(ProtoMessageEncoder<Track> encoder, ObjectWriter objectMapper) {
         this.encoder = Objects.requireNonNull(encoder);
         this.objectMapper = Objects.requireNonNull(objectMapper);
     }
 
     @Override
     public byte[] serialize(String topic, Track data) {
-        try {
+//        try {
             MediaType mediaType = MediaTypes.jsonWithSchema(Schemas.TRACK);
             AccessRightsImpl rights = new AccessRightsImpl();
-            ObjectNode jsonTrack = encoder.encodeJSON(data, rights, mediaType);
-            return objectMapper.writeValueAsBytes(jsonTrack);
-        } catch (JsonProcessingException ex) {
-            LOG.error("Error in serializing track", ex);
-            return null;
-        }
+            Message msg = encoder.encode(data, rights, mediaType);
+            return msg.toByteArray();
+//            return objectMapper.writeValueAsBytes(jsonTrack);
+//        } catch (JsonProcessingException ex) {
+//            LOG.error("Error in serializing track", ex);
+//            return null;
+//        }
 
     }
 

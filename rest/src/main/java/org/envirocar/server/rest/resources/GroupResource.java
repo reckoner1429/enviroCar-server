@@ -56,7 +56,7 @@ public class GroupResource extends AbstractResource {
 
     @GET
     @Schema(response = Schemas.GROUP)
-    @Produces({MediaTypes.JSON, MediaTypes.XML_RDF, MediaTypes.TURTLE, MediaTypes.TURTLE_ALT})
+    @Produces({MediaTypes.OCTET_STREAM, MediaTypes.XML_RDF, MediaTypes.TURTLE, MediaTypes.TURTLE_ALT})
 
     public Group get() {
         return group;
@@ -64,7 +64,7 @@ public class GroupResource extends AbstractResource {
 
     @PUT
     @Authenticated
-    @Consumes({MediaTypes.JSON})
+    @Consumes({MediaTypes.OCTET_STREAM})
     @Schema(request = Schemas.GROUP_MODIFY)
     public Response modify(Group changes) throws ValidationException, IllegalModificationException {
         checkRights(getRights().canModify(group));

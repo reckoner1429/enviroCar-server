@@ -39,7 +39,7 @@ import org.envirocar.server.rest.filter.LoggingFilter;
 import org.envirocar.server.rest.filter.URIContentNegotiationFilter;
 import org.envirocar.server.rest.pagination.PaginationFilter;
 import org.envirocar.server.rest.rights.HasAcceptedLatestLegalPoliciesResourceFilterFactory;
-import org.envirocar.server.rest.schema.JsonSchemaResourceFilterFactory;
+//import org.envirocar.server.rest.schema.JsonSchemaResourceFilterFactory;
 
 import javax.ws.rs.core.HttpHeaders;
 import javax.ws.rs.core.UriInfo;
@@ -99,8 +99,9 @@ public class JerseyModule extends AbstractModule {
         private List<Class<? extends ResourceFilterFactory>> filterFactories() {
             return Arrays.asList(
                     AuthenticationResourceFilterFactory.class,
-                    HasAcceptedLatestLegalPoliciesResourceFilterFactory.class,
-                    JsonSchemaResourceFilterFactory.class);
+                    HasAcceptedLatestLegalPoliciesResourceFilterFactory.class
+//                    ,JsonSchemaResourceFilterFactory.class
+            );
         }
     }
 

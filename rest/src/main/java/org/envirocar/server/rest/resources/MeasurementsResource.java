@@ -69,7 +69,7 @@ public class MeasurementsResource extends AbstractResource {
 
     @GET
     @Schema(response = Schemas.MEASUREMENTS)
-    @Produces({MediaTypes.JSON, MediaTypes.XML_RDF, MediaTypes.TURTLE, MediaTypes.TURTLE_ALT})
+    @Produces({MediaTypes.OCTET_STREAM, MediaTypes.XML_RDF, MediaTypes.TURTLE, MediaTypes.TURTLE_ALT})
     public Measurements get(@QueryParam(RESTConstants.BBOX) BoundingBox bbox,
                             @QueryParam(RESTConstants.NEAR_POINT) NearPoint nearPoint) throws BadRequestException {
         //check spatial filter
@@ -89,7 +89,7 @@ public class MeasurementsResource extends AbstractResource {
     @POST
     @Authenticated
     @Schema(request = Schemas.MEASUREMENT_CREATE)
-    @Consumes({MediaTypes.JSON})
+    @Consumes({MediaTypes.OCTET_STREAM})
     public Response create(Measurement measurement) throws ValidationException {
         Measurement m;
         if (track != null) {

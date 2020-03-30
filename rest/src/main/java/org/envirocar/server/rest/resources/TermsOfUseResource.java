@@ -37,7 +37,7 @@ public class TermsOfUseResource extends AbstractResource {
     @GET
     @AllowOutdatedTerms
     @Schema(response = Schemas.TERMS_OF_USE)
-    @Produces({MediaTypes.JSON})
+    @Produces({MediaTypes.OCTET_STREAM})
     public TermsOfUse get() throws BadRequestException {
         return getDataService().getTermsOfUse(getPagination());
     }

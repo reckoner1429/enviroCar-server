@@ -67,7 +67,7 @@ public class UserResource extends AbstractResource {
     @PUT
     @Authenticated
     @Schema(request = Schemas.USER_MODIFY)
-    @Consumes({MediaTypes.JSON})
+    @Consumes({MediaTypes.OCTET_STREAM})
     @AllowOutdatedTerms
     public Response modify(User changes)
             throws UserNotFoundException, IllegalModificationException,
@@ -90,7 +90,7 @@ public class UserResource extends AbstractResource {
 
     @GET
     @Schema(response = Schemas.USER)
-    @Produces({MediaTypes.JSON, MediaTypes.XML_RDF, MediaTypes.TURTLE, MediaTypes.TURTLE_ALT})
+    @Produces({MediaTypes.OCTET_STREAM, MediaTypes.XML_RDF, MediaTypes.TURTLE, MediaTypes.TURTLE_ALT})
     public User get() {
         return user;
     }

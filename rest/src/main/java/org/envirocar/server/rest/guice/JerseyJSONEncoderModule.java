@@ -33,7 +33,8 @@ import org.envirocar.server.rest.util.ErrorMessage;
  *
  * @author Christian Autermann <autermann@uni-muenster.de>
  */
-public class JerseyJSONEncoderModule extends AbstractModule {
+public class JerseyJSONEncoderModule
+        extends AbstractModule {
     @Override
     protected void configure() {
         bind(JsonNodeMessageBodyWriter.class);
@@ -96,6 +97,5 @@ public class JerseyJSONEncoderModule extends AbstractModule {
         bind(FuelingsJSONEncoder.class);
         bind(UserStatisticJSONEncoder.class);
         bind(ErrorMessageJSONEncoder.class);
-
     }
 }

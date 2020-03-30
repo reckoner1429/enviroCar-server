@@ -81,7 +81,7 @@ public class AuthenticationFilter implements ContainerRequestFilter {
             } catch (UserNotFoundException ignored) {
             }
             if (request.getUserPrincipal() == null) {
-                throw new ForbiddenException("invalid username or password");
+                throw new ForbiddenException("invalid username or password "+request.getAuthenticationScheme());
             }
 
         }

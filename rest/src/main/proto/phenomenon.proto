@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package org.enviroCar.server.rest;
+
+message Phenomenon {
+    string name = 1;
+    string unit = 2;
+    string created = 3;
+    string modified = 4;
+}
+
+message PhenomenonCollection {
+    repeated Phenomenon phenomenon = 1;
+}

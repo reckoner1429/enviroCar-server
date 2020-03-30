@@ -54,7 +54,7 @@ public class FriendsResource extends AbstractResource {
 
     @GET
     @Schema(response = Schemas.USERS)
-    @Produces({MediaTypes.JSON, MediaTypes.XML_RDF, MediaTypes.TURTLE, MediaTypes.TURTLE_ALT})
+    @Produces({MediaTypes.OCTET_STREAM, MediaTypes.XML_RDF, MediaTypes.TURTLE, MediaTypes.TURTLE_ALT})
     public Users get() {
         checkRights(getRights().canSeeFriendsOf(user));
         return getFriendService().getFriends(user);
@@ -62,7 +62,7 @@ public class FriendsResource extends AbstractResource {
 
     @POST
     @Authenticated
-    @Consumes(MediaTypes.JSON)
+    @Consumes(MediaTypes.OCTET_STREAM)
     @Schema(request = Schemas.USER_REF)
     public void add(UserReference friend) throws UserNotFoundException {
         if (friend.getName() == null || friend.getName().equals(getCurrentUser().getName())) {
@@ -82,7 +82,7 @@ public class FriendsResource extends AbstractResource {
 
     @GET
     @Path(INCOMING_FRIEND_REQUESTS)
-    @Produces(MediaTypes.JSON)
+    @Produces(MediaTypes.OCTET_STREAM)
     public Users pendingIncomingFriendRequests() {
         checkRights(getRights().canSeeFriendsOf(user));
         return getFriendService().pendingIncomingRequests(user);
@@ -90,7 +90,7 @@ public class FriendsResource extends AbstractResource {
 
     @GET
     @Path(OUTGOING_FRIEND_REQUESTS)
-    @Produces(MediaTypes.JSON)
+    @Produces(MediaTypes.OCTET_STREAM)
     public Users pendingOutgoingFriendRequests() {
         checkRights(getRights().canSeeFriendsOf(user));
         return getFriendService().pendingOutgoingRequests(user);
@@ -99,7 +99,7 @@ public class FriendsResource extends AbstractResource {
     @POST
     @Path(DECLINE_FRIEND_REQUEST)
     @Schema(request = Schemas.USER_REF)
-    @Consumes(MediaTypes.JSON)
+    @Consumes(MediaTypes.OCTET_STREAM)
     @Authenticated
     public void decline(UserReference friend) throws UserNotFoundException {
         User f = getUserService().getUser(friend.getName());
