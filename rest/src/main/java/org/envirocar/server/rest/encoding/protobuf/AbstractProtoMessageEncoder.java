@@ -9,7 +9,6 @@ import org.envirocar.server.rest.schema.JsonSchemaUriConfiguration;
 import org.joda.time.format.DateTimeFormatter;
 
 import javax.ws.rs.core.MediaType;
-import java.io.OutputStream;
 
 public abstract class AbstractProtoMessageEncoder<T> extends AbstractProtoMessageBodyWriter<T> implements ProtoMessageEncoder<T> {
     private DateTimeFormatter dateTimeFormat;
@@ -35,7 +34,7 @@ public abstract class AbstractProtoMessageEncoder<T> extends AbstractProtoMessag
     }
 
     @Override
-    public Message encode(T entity, MediaType mediaType, OutputStream out) {
+    public Message encode(T entity, MediaType mediaType) {
         return encode(entity, rights.get(), mediaType);
     }
 

@@ -30,7 +30,7 @@ public abstract class AbstractProtoMessageBodyWriter<T> implements MessageBodyWr
     public void writeTo(T entity, Class<?> type, Type genericType, Annotation[] annotations, MediaType mediaType,
                         MultivaluedMap<String, Object> httpHeaders, OutputStream out)
             throws IOException, WebApplicationException {
-        Message message = encode(entity, mediaType, out);
+        Message message = encode(entity, mediaType);
         message.writeTo(out);
         out.flush();
     }
@@ -41,6 +41,6 @@ public abstract class AbstractProtoMessageBodyWriter<T> implements MessageBodyWr
         return -1;
     }
 
-    public abstract Message encode(T entity, MediaType mediaType, OutputStream out);
+    public abstract Message encode(T entity, MediaType mediaType);
 
 }
